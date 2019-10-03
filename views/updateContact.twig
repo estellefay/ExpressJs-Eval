@@ -1,22 +1,88 @@
 {% extends 'layout.twig' %}
 
-{% block body %}
-<h1>modifier un contact</h1>
+{% extends 'layout.twig' %}
 
-<form>
+{% block body %}
+<h1>Modifier un contact</h1>
+<form onSubmit="valider(this)" id="myForm" name="myForm" action="/submit">
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <label for="nom">nom</label>
+    <input type="text" class="form-control" id="nom" placeholder="nom">
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="prenom">prenom</label>
+    <input type="text" class="form-control" id="prenom" placeholder="prenom">
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  <div class="form-group">
+    <label for="type">type</label>
+    <input type="text" class="form-control" id="type" placeholder="type">
+    <label for="adresseEmail">adresseEmail</label>
+    <input type="email" class="form-control" id="adresseEmail" placeholder="adresseEmail">
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <div class="form-group">
+    <label for="type">type</label>
+    <input type="text" class="form-control" id="type" placeholder="type">
+    <label for="adresseEmail">adresseEmail</label>
+    <input type="email" class="form-control" id="adresseEmail" placeholder="adresseEmail">
+  </div>
+ <div class="form-group">
+    <label for="type">type</label>
+    <input type="text" class="form-control" id="type" placeholder="type">
+    <label for="numero">numero</label>
+    <input type="number" class="form-control" id="numero" placeholder="numero">
+  </div>
+  <div class="form-group">
+    <label for="type">type</label>
+    <input type="text" class="form-control" id="type" placeholder="type">
+    <label for="numero">numero</label>
+    <input type="number" class="form-control" id="numero" placeholder="numero">
+  </div>
+  <div class="form-group">
+    <label for="description">description</label>
+    <input type="text" class="form-control" id="description" placeholder="description">
+  </div>
+ <div class="form-group">
+    <label for="avatar">url avatar</label>
+    <input type="url" class="form-control" id="avatar" placeholder="avatar">
+  </div>
+  {# <a href="javascript:valider">ffff</a> #}
+    <button type="submit" id="createContact" class="btn btn-primary mb-2">Créer contact</button>
 </form>
+  {% endblock %}
+
+
+{% block javascript %}
+   <script type="text/javascript">
+
+
+      function valider(form) {   
+        //form.action = form_action;
+        //alert(data);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("PUT", 'http://localhost:3000/contacts', false);
+
+        xhr.send(form);
+        // // xhr.send(new Int8Array()); 
+        // // xhr.send(document);
+        }
+
+  // var send = function() {
+  //   var obj = $('myForm').serializeJSON();
+  //   alert("roto");
+
+
+
+
+  //   var request = new XMLHttpRequest();
+  //   POST to httpbin which returns the POST data as JSON
+  //   request.open('POST', 'http://localhost:3000/contacts', false);
+
+  //   var formData = JSON.stringify($("#myForm").serializeArray());
+  //   request.send(formData);
+  // };
+
+
+    </script>
+
 {% endblock %}

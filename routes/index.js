@@ -49,6 +49,9 @@ router.get('/createContact', function(req, res, next) {
     res.render('createContact');
 });
 
-
+/* create contact page. */
+router.get('/submit', function(req, res, next) {
+  console.log(req.body);
+});
 
 module.exports = router;

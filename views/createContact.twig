@@ -2,7 +2,7 @@
 
 {% block body %}
 <h1>Crée un contact</h1>
-<form  onsubmit="return valider()">
+<form  id="myForm" name="myForm" action="/submit" method="post">
   <div class="form-group">
     <label for="nom">nom</label>
     <input type="text" class="form-control" id="nom" placeholder="nom">
@@ -44,45 +44,43 @@
     <input type="url" class="form-control" id="avatar" placeholder="avatar">
   </div>
   {# <a href="javascript:valider">ffff</a> #}
-    <input type="submit" id="createContact" class="btn btn-primary mb-2">Créer contact</input>
+    <button type="submit" id="createContact" class="btn btn-primary mb-2">Créer contact</button>
 </form>
   {% endblock %}
 
 
 {% block javascript %}
-  <script type="text/javascript">
+   <script type="text/javascript">
 
 
-      //  function valider() {   
-      //       console.log("helllll");
-      //   var xhr = new XMLHttpRequest();
-      //   xhr.open("POST", 'http://localhost:3000/contacts', true);
+  //     function valider(form) {   
+  //       //form.action = form_action;
+  //       //alert(data);
 
-      //   xhr.send();
-      //   // xhr.send(new Int8Array()); 
-      //   // xhr.send(document);
-      //   }
+  //       var xhr = new XMLHttpRequest();
+  //       xhr.open("POST", 'http://localhost:3000/contacts', false);
+
+  //       xhr.send(form);
+  //       // // xhr.send(new Int8Array()); 
+  //       // // xhr.send(document);
+  //       }
+
+  // var send = function() {
+  //   var obj = $('myForm').serializeJSON();
+  //   alert("roto");
 
 
-    function valider()
-    {
-      var elements = document.getElementsByClassName("form-control");
-      var formData = new FormData(); 
-      for(var i=0; i<elements.length; i++)
-      {
-          formData.append(elements[i].name, elements[i].value);
-      }
-      var xmlHttp = new XMLHttpRequest();
-          xmlHttp.onreadystatechange = function()
-          {
-              if(xmlHttp.readyState == 4 && xmlHttp.status == 200)
-              {
-                  alert(xmlHttp.responseText);
-              }
-          }
-          xmlHttp.open("POST", "http://localhost:3000/contacts"); 
-          xmlHttp.send(formData); 
-      }
+
+
+  //   var request = new XMLHttpRequest();
+  //   POST to httpbin which returns the POST data as JSON
+  //   request.open('POST', 'http://localhost:3000/contacts', false);
+
+  //   var formData = JSON.stringify($("#myForm").serializeArray());
+  //   request.send(formData);
+  // };
+
+
     </script>
 
 {% endblock %}
