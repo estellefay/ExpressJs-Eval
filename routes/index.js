@@ -6,8 +6,9 @@ const ObjectId = require('mongodb').ObjectId;
 /* GET home page. */
 router.get('/', function(req, res, next) {
   // Obtenir tous les contact -> @TODO ordre alphabétique
-  mongo.getInstance().collection('contacts').find().sort({'nom': 1}).toArray(function(err, contacts) {
+  mongo.getInstance().collection('contacts').find().sort({nom: 1}).toArray(function(err, contacts) {
     nbContact = contacts.length;
+    console.log(contacts);
     // Obtenir les 3 dernier contacts
   mongo.getInstance().collection('contacts').find().sort({_id:-1}).limit(3).toArray(function(err, contactsLast) {  
     res.render('index', { title: 'Annuaire Online', contacts : contacts, nbContact : nbContact, contactsLast : contactsLast});
@@ -29,7 +30,9 @@ router.get('/contactDetail/:id', function(req, res, next) {
   });
 });
 
-/* GET contact page. */
+
+
+/* update contact page. */
 router.get('/updateContact/:id', function(req, res, next) {
 
   mongo.getInstance().collection('contacts').find({_id: ObjectId( req.params.id )},).toArray(function(err, result) {
@@ -39,4 +42,13 @@ router.get('/updateContact/:id', function(req, res, next) {
     }
   });
 });
+
+
+/* create contact page. */
+router.get('/createContact', function(req, res, next) {
+    res.render('createContact');
+});
+
+
+
 module.exports = router;

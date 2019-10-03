@@ -24,6 +24,8 @@ router.get('/', function(req, res, next) {
 
 // Création un contact
 router.post('/', function(req, res) { 
+  console.log("sa passe");
+  console.log(req.body);
 //console.log(req.body.email);
 
   // tableau avec les emails

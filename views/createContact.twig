@@ -1,0 +1,77 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<h1>Crée un contact</h1>
+<form  onsubmit="return valider()">
+  <div class="form-group">
+    <label for="nom">nom</label>
+    <input type="text" class="form-control" id="nom" placeholder="nom">
+  </div>
+  <div class="form-group">
+    <label for="prenom">prenom</label>
+    <input type="text" class="form-control" id="prenom" placeholder="prenom">
+  </div>
+  <div class="form-group">
+    <label for="type">type</label>
+    <input type="text" class="form-control" id="type" placeholder="type">
+    <label for="adresseEmail">adresseEmail</label>
+    <input type="email" class="form-control" id="adresseEmail" placeholder="adresseEmail">
+  </div>
+  <div class="form-group">
+    <label for="type">type</label>
+    <input type="text" class="form-control" id="type" placeholder="type">
+    <label for="adresseEmail">adresseEmail</label>
+    <input type="email" class="form-control" id="adresseEmail" placeholder="adresseEmail">
+  </div>
+ <div class="form-group">
+    <label for="type">type</label>
+    <input type="text" class="form-control" id="type" placeholder="type">
+    <label for="numero">numero</label>
+    <input type="number" class="form-control" id="numero" placeholder="numero">
+  </div>
+  <div class="form-group">
+    <label for="type">type</label>
+    <input type="text" class="form-control" id="type" placeholder="type">
+    <label for="numero">numero</label>
+    <input type="number" class="form-control" id="numero" placeholder="numero">
+  </div>
+  <div class="form-group">
+    <label for="description">description</label>
+    <input type="text" class="form-control" id="description" placeholder="description">
+  </div>
+ <div class="form-group">
+    <label for="avatar">url avatar</label>
+    <input type="url" class="form-control" id="avatar" placeholder="avatar">
+  </div>
+    <button type="submit" id="createContact" class="btn btn-primary mb-2">Créer contact</button>
+    <a href="javascript:valider()">rrrr</a>
+</form>
+  {% endblock %}
+
+
+{% block javascripts %}
+    <script src="{{ asset('PathDuFichier/tonFichier.js') }}"></script>
+    <script src="Ton_URL"></script>
+    <script type="text/javascript">
+    // Mettre Ton Script Ici  
+document.querySelectorAll("button[type='submit']")[0].click();
+function valider() {
+console.log("coucou");
+
+}
+
+// Create a request variable and assign a new XMLHttpRequest object to it.
+var request = new XMLHttpRequest()
+
+// Open a new connection, using the GET request on the URL endpoint
+request.open('POST', 'https://localhost:3000/contacts', true)
+
+request.onload = function() {
+  // Begin accessing JSON data here
+}
+
+// Send request
+request.send()
+    </script>
+
+{% endblock %}
