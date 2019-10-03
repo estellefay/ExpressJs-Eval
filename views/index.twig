@@ -10,4 +10,13 @@
         </div>
     {% endfor %}
     </div>
+
+    <h2>Les 3 dernier contacts ajouter</h2>
+    <div class="row">
+        {% for contact in contactsLast %}
+            <div class="col-md-4 trending">
+                {% include "lastContact.twig" %}
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
