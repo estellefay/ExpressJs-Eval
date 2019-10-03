@@ -25,9 +25,25 @@
                 </li>
             </ul>
             <div class="card-body">
-                <a href="" class="btn btn-primary">Suprimer</a>
+                {# <button onclick="delete()">Click me</button> #}
+                {{contact._id}}
                 <a href="/updateContact/{{contact._id}}" class="btn btn-primary">Modifier</a>
+                <p id="demo" onclick="test('{{contact._id}}')">Supprimer</p>
             </div>
     </div>
+
+{% endblock %}
+
+
+{% block javascript %}
+  <script type="text/javascript">
+        function test(id) {
+            console.log(id);
+            var xhr = new XMLHttpRequest();
+            xhr.open("DELETE", "http://localhost:3000/contacts/" + id, true);
+            xhr.send();
+        }
+
+ </script>
 
 {% endblock %}
