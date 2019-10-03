@@ -1,0 +1,13 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <h2>Contacts</h2>
+    <h4>Vous possèder {{nbContact}} contacts</h4>
+    <div class="row">
+    {% for contact in contacts %}
+        <div class="col-md-4 trending">
+            {% include "contact.twig" %}
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
